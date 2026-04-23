@@ -57,6 +57,7 @@ html,body{height:100%;font-family:var(--fb);background:var(--bg);color:var(--t1)
 .pcard{background:var(--s2);border:.5px solid var(--gglow);border-radius:var(--r);padding:14px;margin:4px 0 0;cursor:pointer;transition:background .15s;display:block}
 .pcard:hover{background:var(--s3)}
 .pcard-type{font-size:9px;font-weight:600;letter-spacing:1px;color:var(--g);text-transform:uppercase;margin-bottom:4px}
+.pcard-type.edu{color:var(--v)}
 .pcard-title{font-size:14px;font-weight:600;color:var(--t1);margin-bottom:3px}
 .pcard-desc{font-size:12px;color:var(--t2);line-height:1.5;margin-bottom:10px}
 .pcard-foot{display:flex;align-items:center;justify-content:space-between}
@@ -210,86 +211,87 @@ html,body{height:100%;font-family:var(--fb);background:var(--bg);color:var(--t1)
 <script>
 // ── SERO CONTENT LIBRARY ──────────────────────────────────────
 const LIBRARY = [
+  // ── PRÁCTICAS (tienen audio/video guiado) ──────────────────
   {
-    id:"reset-nervous",
-    title:"Reset del sistema nervioso",
-    type:"Breathwork",dur:"7 min",
-    desc:"Activa tu nervio vago y sal del modo amenaza en minutos.",
+    id:"reset-nervioso",
+    title:"Reset del sistema nervioso en 7 minutos",
+    badge:"Breathwork",
+    dur:"7 min", minTime:5,
+    type:"practice",
+    desc:"Activa tu nervio vago y sal del modo amenaza. Ideal para calmar la activación física del estrés o la ansiedad ahora mismo.",
     driveId:"1hziU5LpK1hGSQ2ZKrnhFvHmKIdXKoVAP",
-    tags:["ansioso","ansiedad","estrés","nervioso","agitado","tensión","pánico","sobrepasado","urgente","miedo","conversación","importante"]
+    tags:["ansioso","nervioso","estresado","abrumado","frustrado","antes-conversacion","agitado","tensión","pánico"]
   },
   {
     id:"respiracion-oceanica",
-    title:"Respiración Oceánica",
-    type:"Breathwork",dur:"8 min",
-    desc:"Libera la ansiedad con respiración rítmica y profunda.",
+    title:"Respiración Oceánica para liberar ansiedad",
+    badge:"Breathwork",
+    dur:"8 min", minTime:5,
+    type:"practice",
+    desc:"Respiración rítmica y profunda para disolver la ansiedad y recuperar calma.",
     driveId:"19faCr8fF64h_4jTA0ZqyRPbUZnGapHhb",
-    tags:["ansioso","ansiedad","preocupación","nervios","angustia","calmar","respiración"]
+    tags:["ansioso","angustia","nervioso","antes-conversacion","preocupado"]
   },
   {
-    id:"sueno-profundo-v1",
-    title:"Sueño profundo y reparador",
-    type:"Meditación",dur:"20 min",
-    desc:"Guía para dormir en calma y despertar restaurado.",
-    driveId:"rfp9dyT7u2b",
-    url:"https://insig.ht/rfp9dyT7u2b",
-    tags:["sueño","insomnio","descanso","cansado","agotado","dormir","noche","fatiga"]
-  },
-  {
-    id:"sueno-profundo-v2",
-    title:"Duerme Profundamente Esta Noche",
-    type:"Meditación",dur:"20 min",
-    desc:"Una guía profunda para soltar el día y restaurarte mientras duermes.",
-    driveId:"1ivwgX6iZmbpVRU1JQdUwgLWTro69DPh1",
-    tags:["sueño","insomnio","descanso","cansado","agotado","dormir","noche","fatiga","tensión"]
-  },
-  {
-    id:"que-es-estres",
-    title:"¿Qué es el estrés?",
-    type:"Educación",dur:"10 min",
-    desc:"Entiende la biología del estrés para dejar de luchar contra él.",
-    driveId:"10tFcJhe3argptxp32y8SNUXIWyaDNuGs",
-    tags:["estrés","trabajo","presión","crónico","entender","aprender","abrumado","frustrado"]
-  },
-  {
-    id:"sistema-amenaza",
-    title:"¿Qué es el sistema de amenaza?",
-    type:"Educación",dur:"8 min",
-    desc:"Comprende por qué tu cerebro entra en modo defensa y cómo salir.",
-    driveId:"1hziU5LpK1hGSQ2ZKrnhFvHmKIdXKoVAP",
-    tags:["miedo","amenaza","cerebro","defensa","ansiedad","reacción","angustia","bloqueado"]
-  },
-  {
-    id:"mindful-eating",
-    title:"Mindful Eating · Intro Mindfulness",
-    type:"Mindfulness",dur:"10 min",
-    desc:"Aprende a estar presente usando la alimentación como ancla.",
-    driveId:"18bLW9xpnP9jQMf-ImfUxhZg4u3B3IrVb",
-    tags:["mindfulness","presente","concentración","foco","disperso","distracción","inquieto"]
-  },
-  {
-    id:"conversacion-importante",
-    title:"Antes de una Conversación Importante",
-    type:"Breathwork",dur:"5 min",
-    desc:"Regula tu sistema nervioso antes de una reunión o conversación difícil.",
+    id:"antes-conversacion",
+    title:"Antes de una conversación importante — regula tu sistema nervioso en 5 min",
+    badge:"Breathwork · 5 min",
+    dur:"5 min", minTime:3,
+    type:"practice",
+    desc:"Regula tu sistema nervioso antes de una reunión difícil, presentación o conversación importante.",
     driveId:"1Y_B_SO80U7wBIjm2eq6hg4l3RIiCxS4r",
-    tags:["nervioso","conversación","reunión","jefe","presentación","hablar","confrontación","ansioso","miedo","importante"]
+    tags:["antes-conversacion","nervioso","ansioso","estresado","reunión","presentación","jefe"]
   },
   {
     id:"descarga-preocupacion",
-    title:"Descarga Tu Preocupación Ahora",
-    type:"Meditación",dur:"10 min",
-    desc:"Suelta lo que tu mente lleva cargando y recupera claridad.",
+    title:"Descarga tu preocupación ahora",
+    badge:"Meditación",
+    dur:"10 min", minTime:8,
+    type:"practice",
+    desc:"Suelta lo que tu mente lleva cargando y recupera claridad mental.",
     driveId:"1gGhmELL8jZGUtNBB8ujEgXcSqy488tBx",
-    tags:["preocupado","preocupación","rumiación","pensamiento","espiral","sobrepasado","carga","trabajo","pendientes"]
+    tags:["preocupado","abrumado","rumiando","carga-mental","espiral","pendientes"]
   },
   {
     id:"espiral-mental",
-    title:"Detén la Espiral Mental",
-    type:"Meditación",dur:"7 min",
-    desc:"Interrumpe el bucle de pensamiento negativo y recupera el control.",
-    driveId:"13de0yyHJWKG1oASggmPRvuSXG6GaKjIsu",
-    tags:["espiral","rumiación","bucle","pensamiento","negativo","preocupado","ansioso","bloqueado","overthinking"]
+    title:"Detén la espiral mental en 7 minutos",
+    badge:"Meditación",
+    dur:"7 min", minTime:5,
+    type:"practice",
+    desc:"Interrumpe el bucle de pensamiento negativo o rumiante y recupera el control.",
+    driveId:"13de0yyHJWKG1oASgmPRvuSXG6GaKjIsu",
+    tags:["rumiando","espiral","preocupado","ansioso","bloqueado","overthinking","bucle"]
+  },
+  {
+    id:"sueno-profundo",
+    title:"Duerme profundamente esta noche",
+    badge:"Meditación para dormir",
+    dur:"20 min", minTime:15,
+    type:"practice",
+    desc:"Guía para soltar el día, relajar el cuerpo y entrar en sueño profundo y reparador.",
+    driveId:"1ivwgX6iZmbpVRU1JQdUwgLWTro69DPh1",
+    tags:["agotado","insomnio","fin-del-día","descanso","dormir","fatiga"]
+  },
+  {
+    id:"mindful-eating",
+    title:"Mindful Eating · Introducción al Mindfulness",
+    badge:"Mindfulness",
+    dur:"10 min", minTime:8,
+    type:"practice",
+    desc:"Aprende a anclar tu atención al presente usando la experiencia de comer como entrada al mindfulness.",
+    driveId:"18bLW9xpnP9jQMf-ImfUxhZg4u3B3IrVb",
+    tags:["desenfocado","disperso","distracción","mindfulness","presente","foco"]
+  },
+  // ── CONTENIDO EDUCATIVO (informativo, no tiene práctica guiada) ──
+  {
+    id:"sapolsky-estres",
+    title:"¿Qué es el estrés? — La perspectiva de Robert Sapolsky",
+    badge:"Educación",
+    dur:"10 min", minTime:8,
+    type:"education",
+    desc:"Una introducción a la biología del estrés desde la perspectiva de Robert Sapolsky. Contenido informativo — te ayudará a entender qué está pasando en tu cuerpo.",
+    driveId:"1hziU5LpK1hGSQ2ZKrnhFvHmKIdXKoVAP",
+    tags:["quiero-entender","entender-estres","estresado","curiosidad","por-qué"]
   }
 ];
 
@@ -398,13 +400,13 @@ function addChips(opts, cb){
 function addMoods(cb){
   const moods=[
     {e:"😰",l:"Ansiosx"},
-    {e:"😤",l:"Frustrадx"},
-    {e:"🤯",l:"Abrumадx"},
-    {e:"😩",l:"Agotадx"},
-    {e:"😶",l:"Bloqueадx"},
+    {e:"😤",l:"Frustradx"},
+    {e:"🤯",l:"Abrumadx"},
+    {e:"😩",l:"Agotadx"},
+    {e:"😶",l:"Bloqueadx"},
     {e:"😬",l:"Nerviosx"},
-    {e:"😔",l:"Desanimадx"},
-    {e:"🌀",l:"Desenfocадx"},
+    {e:"😔",l:"Desanimadx"},
+    {e:"🌀",l:"Desenfocadx"},
   ];
   const g = document.createElement("div");
   g.className = "mgrid";
@@ -412,7 +414,7 @@ function addMoods(cb){
     const b = document.createElement("button");
     b.className = "mbtn";
     b.innerHTML = `<span class="memo">${m.e}</span><span class="mlbl">${m.l}</span>`;
-    b.onclick = ()=>{ g.remove(); cb(m.l.replace(/[хx]$/,"x")); };
+    b.onclick = ()=>{ g.remove(); cb(m.l.replace(/[xx]$/,"x")); };
     g.appendChild(b);
   });
   chat.appendChild(g); scrollEnd();
@@ -421,13 +423,17 @@ function addMoods(cb){
 function renderCard(content){
   const d = document.createElement("div");
   d.className = "pcard";
+  const isEdu = content.type === "education";
+  const btnLabel = isEdu ? "Ver contenido →" : "Comenzar →";
+  const typeClass = isEdu ? "pcard-type edu" : "pcard-type";
+  const badge = content.badge || content.type;
   d.innerHTML = `
-    <div class="pcard-type">${content.type}</div>
+    <div class="${typeClass}">${badge}</div>
     <div class="pcard-title">${content.title}</div>
     <div class="pcard-desc">${content.desc}</div>
     <div class="pcard-foot">
       <span class="pcard-dur">⏱ ${content.dur}</span>
-      <button class="pcard-btn">Comenzar →</button>
+      <button class="pcard-btn">${btnLabel}</button>
     </div>`;
   d.querySelector(".pcard-btn").onclick = (e)=>{ e.stopPropagation(); openPlayer(content); };
   d.onclick = ()=>openPlayer(content);
@@ -451,13 +457,13 @@ function renderGeneratedCard(p){
 // ── COACH LOGIC ───────────────────────────────────────────────
 const MOOD_MAP = {
   "ansiosx":  {key:"ansioso", label:"ansiedad"},
-  "frustrадx":  {key:"frustrado", label:"frustración"},
-  "abrumадx": {key:"abrumado", label:"saturación"},
-  "agotадx":  {key:"agotado",  label:"agotamiento"},
-  "bloqueадx":{key:"bloqueado",label:"bloqueo mental"},
+  "frustrаdx":  {key:"frustrado", label:"frustración"},
+  "abrumаdx": {key:"abrumado", label:"saturación"},
+  "agotаdx":  {key:"agotado",  label:"agotamiento"},
+  "bloqueаdx":{key:"bloqueado",label:"bloqueo mental"},
   "nerviosx": {key:"nervioso", label:"nerviosismo"},
-  "desanimадx":{key:"triste",  label:"tristeza"},
-  "desenfocадx":{key:"desenfocado",label:"falta de foco"},
+  "desanimаdx":{key:"triste",  label:"tristeza"},
+  "desenfocаdx":{key:"desenfocado",label:"falta de foco"},
 };
 
 function detectMoodFromText(text){
@@ -565,11 +571,18 @@ function handleInput(userText){
     phase="practice";
     const content = matchContent(detectedMood, userText);
     if(content){
-      coachSay(`Perfecto. Tengo exactamente lo que necesitas.\n\nEsta práctica trabaja directamente con lo que está pasando en tu sistema nervioso — es concreta y basada en evidencia.`, 900);
+      const isEdu = content.type === "education";
+      const intro = isEdu
+        ? `Antes de una práctica, tengo algo que podría ayudarte a entender exactamente lo que está pasando en tu cuerpo.\n\nEs un contenido informativo — no una práctica guiada, sino una explicación que cambia cómo percibes lo que experimentas.`
+        : `Perfecto. Tengo exactamente lo que necesitas.\n\nEsta práctica trabaja directamente con lo que está pasando en tu sistema nervioso — es concreta y basada en evidencia.`;
+      coachSay(intro, 900);
       setTimeout(()=>{
         renderCard(content);
         setTimeout(()=>{
-          addMsg("coach","Toca la práctica para comenzar. Cuando termines, cuéntame cómo te sentiste — aquí estaré. 🌿");
+          const followMsg = isEdu
+            ? "Cuando termines de verlo, cuéntame cómo te quedaste — y si quieres hacemos una práctica para trabajar con lo que encontraste. 🌿"
+            : "Toca la práctica para comenzar. Cuando termines, cuéntame cómo te sentiste — aquí estaré. 🌿";
+          addMsg("coach", followMsg);
           phase="followup";
         }, 1200);
       }, 1900);
